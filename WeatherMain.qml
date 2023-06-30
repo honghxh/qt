@@ -1,0 +1,191 @@
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+
+Item {
+    width: 800
+    height: 480
+    property var weatherstate: ""
+    property var cityname: ""
+    property var area_1: ""
+    property var area_2: ""
+    property var area_3: ""
+    property var week: ""
+    property var pressurel: ""
+    property var visibility: ""
+    property var temp: ""
+    property var windNm: ""
+    Image {
+        id: image
+        x: 0
+        y: 0
+        width: 800
+        height: 480
+        fillMode: Image.Stretch
+        source: "qrc:/C:/Users/Dell/Pictures/Saved Pictures/wearther/VCG41157334471.jpg"
+
+        Image {
+            id: image1
+            x: 26
+            y: 151
+            width: 135
+            height: 108
+            source: "qrc:/C:/Users/Dell/Pictures/Saved Pictures/wearther/%1.png".arg(
+                        weatherstate)
+            fillMode: Image.PreserveAspectFit
+        }
+    }
+
+    TextField {
+        id: customTextField
+        x: 8
+        y: 8
+        width: 139
+        height: 41
+        color: "#262a27"
+        opacity: 0.3
+        placeholderText: "Enter city name"
+        font.bold: true
+        font.pointSize: 10
+        onTextChanged: {
+            cityname = customTextField.text
+        }
+    }
+
+    Button {
+        x: 153
+        y: 9
+        width: 46
+        height: 40
+        text: "Get"
+        opacity: 0.2
+        font.bold: true
+        font.pointSize: 9
+        onClicked: {
+            weather.getWeather(customTextField.text)
+        }
+    }
+    Button {
+        x: 596
+        y: 386
+        text: "FutureDayWeather"
+        opacity: 0.2
+        font.bold: true
+        font.pointSize: 13
+        onClicked: {
+            mainWeather = 1
+            futureWeather = 1
+            weather.getWeatherJson()
+        }
+    }
+    Button {
+        x: 596
+        y: 432
+        width: 160
+        height: 40
+        text: "FutureHourWeather"
+        opacity: 0.2
+        font.bold: true
+        font.pointSize: 12
+        onClicked: {
+            mainWeather = 1
+            futureHour = 1
+            weather.getWeatherJson()
+        }
+    }
+    Label {
+        id: area
+        x: 320
+        y: 13
+        width: 160
+        height: 36
+        color: "#f4f6f5"
+        text: area_1 + area_2 + area_3
+        font.bold: true
+        font.pointSize: 18
+    }
+    Label {
+        id: wtweek
+        x: 558
+        y: 13
+        width: 118
+        height: 36
+        color: "#f4f6f5"
+        text: week
+        font.bold: true
+        font.pointSize: 18
+    }
+    Label {
+        id: wtWindNm
+        x: 320
+        y: 156
+        width: 118
+        height: 36
+        color: "#f4f6f5"
+        text: "当前风向:" + windNm
+        font.bold: true
+        font.pointSize: 18
+    }
+    Label {
+        id: weatherstate_1
+        x: 320
+        y: 67
+        width: 118
+        height: 36
+        color: "#f4f6f5"
+        text: "当前天气:" + weatherstate
+        font.bold: true
+        font.pointSize: 18
+    }
+    Label {
+        id: wtTemp
+        x: 29
+        y: 91
+        width: 118
+        height: 36
+        color: "#f4f6f5"
+        text: "当前温度:" + temp
+        font.bold: true
+        font.pointSize: 18
+    }
+    Label {
+        id: wtVisibility
+        x: 320
+        y: 238
+        width: 118
+        height: 36
+        color: "#f4f6f5"
+        text: "当前可视度:" + visibility
+        font.bold: true
+        font.pointSize: 18
+    }
+    Label {
+        id: wtPressurel
+        x: 320
+        y: 317
+        width: 118
+        height: 36
+        color: "#f4f6f5"
+        text: "当前大气压:" + pressurel
+        font.bold: true
+        font.pointSize: 18
+    }
+    function storeWeatherData(jsonObject) {
+        //使用js将json中数据取出,将一个json数据一下发过来就不用发那么多信号操作,直接在on方法里也可以进行取json结构里面的数据
+        area_1 = jsonObject.area_1
+        area_2 = jsonObject.area_2
+        area_3 = jsonObject.area_3
+        weatherstate = jsonObject.realTime.wtNm
+        week = jsonObject.realTime.week
+        temp = jsonObject.realTime.wtTemp
+        windNm = jsonObject.realTime.wtWindNm
+        visibility = jsonObject.realTime.wtVisibility
+        pressurel = jsonObject.realTime.wtPressurel
+    }
+
+    Connections {
+        target: weather
+        onResponseResult: {
+            storeWeatherData(value)
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/小雨.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/VCG4115733测试4471.jpg</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/VCG41157334471.jpg</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/多云.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/晴.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/VCG41157334471.jpg</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/多云.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/晴.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/小雨.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/1.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/2.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/3.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/FutureBackground.jpg</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/雷阵雨.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/FutureHourBackground.png</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/R-C.jpg</file>
+        <file>C:/Users/Dell/Pictures/Saved Pictures/wearther/阴.png</file>
+    </qresource>
+</RCC>

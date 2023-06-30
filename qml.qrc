@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>WeatherMain.qml</file>
+        <file>FutureDay.qml</file>
+        <file>FutureHour.qml</file>
+        <file>DsmWeatherState.qml</file>
+    </qresource>
+</RCC>
