@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>FilpPage.qml</file>
+        <file>Cirque.qml</file>
+        <file>RectangleTransform.qml</file>
+    </qresource>
+</RCC>
